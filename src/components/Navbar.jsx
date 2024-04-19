@@ -78,7 +78,7 @@ const Navbar = () => {
             {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
           </div>
           {nav && (
-            <ul className="flex flex-col justify-center items-center absolute top-0 left-0 bg-gray-300 w-full h-screen backdrop-blur-lg bg-opacity-50">
+            <ul className="flex flex-col justify-center items-center absolute top-0 left-0 bg-gray-300 w-full h-screen ">
               {link.map(({ id, item, logo }) => (
                 <li
                   key={id}
