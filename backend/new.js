@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import React from "react";
 
 import {
   FaSearch,
@@ -16,7 +15,6 @@ const GlassContainer = ({ children }) => (
 );
 
 const Navbar = () => {
-  const [nav, setNav] = useState(false);
   return (
     <div className="absolute top-10 left-20">
       <GlassContainer>
