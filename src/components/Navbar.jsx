@@ -51,7 +51,7 @@ const Navbar = () => {
               <FaSearch size={20} className="" />
               <input
                 placeholder="Search Creators "
-                className="rounded-full p-2 w-40 sm:w-64 border-none focus:outline-none "
+                className="rounded-2xl md:rounded-full p-2 w-40 sm:w-64 border-none focus:outline-none "
               />
             </div>
           </div>
