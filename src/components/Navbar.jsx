@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 
 const GlassContainer = ({ children }) => (
-  <div className="bg-gray-300 mt-3  absolute bg-opacity-50 backdrop-blur-lg rounded-full flex items-center w-full justify-center">
+  <div className="bg-gray-300 mt-3  absolute bg-opacity-50 backdrop-blur-lg rounded-full flex items-center w-full justify-center z-999">
     {children}
   </div>
 );

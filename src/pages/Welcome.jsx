@@ -3,14 +3,8 @@ import React from "react";
 const Welcome = () => {
   return (
     <>
-      <div className="flex flex-col">
-        <div className="">
-          <img src="/images/background.png" alt="" />
-        </div>
-        <div className="absolute top-[124px] left-[800px]">
-          <img src="/images/mobile.png" alt="" />
-        </div>
-        <div className="absolute top-1/3 right-2/3 ">
+      <div className=" flex items-center justify-center  flex-col md:flex-row pt-48 md:pt-8">
+        <div className=" w-1/2 flex items-center flex-col justify-center">
           <div className="">
             <div>
               <h1 className="text-4xl font-bold font-signature">
@@ -38,6 +32,9 @@ const Welcome = () => {
               Get Started
             </button>
           </div>
+        </div>
+        <div className="w-1/2 flex   pt-16">
+          <img src="/images/mobile.png" alt="" className="h-[550px] mt-8" />
         </div>
       </div>
     </>
