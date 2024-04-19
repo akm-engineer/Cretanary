@@ -44,7 +44,7 @@ const Navbar = () => {
       <GlassContainer>
         <div className=" w-full   flex justify-between md:justify-evenly items-center p-6 sm:flex-wrap">
           <div className="flex gap-10 flex-col md:flex-row">
-            <h1 className="font-signature text-2xl ml-2 capitalize   cursor-pointer">
+            <h1 className="font-signature text-3xl ml-2 capitalize  font-bold cursor-pointer">
               Cretanary
             </h1>
             <div className="flex items-center justify-center gap-2 ml-10 sm:ml-20 md:ml-0">
