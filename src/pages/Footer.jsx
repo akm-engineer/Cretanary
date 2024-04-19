@@ -14,23 +14,23 @@ const Footer = () => {
   ];
 
   return (
-    <div className="bg-[#4A508E] p-8 flex flex-col md:flex-row justify-between">
-      <div className="text-white w-1/3 flex justify-center items-center">
+    <div className="bg-[#4A508E] p-8 flex flex-col md:flex-row justify-center md:justify-between items-center">
+      <div className="text-white w-full md:w-1/3 flex justify-center  items-center mb-4 md:mb-0">
         <h2 className="text-2xl font-footer">Cretanary</h2>
       </div>
 
-      <div className="text-white w-1/3">
+      <div className="text-white w-full md:w-1/3 flex justify-center items-center mb-4 md:mb-0">
         <ul>
           {navLinks.map((link, index) => (
-            <li key={index} className="text-xl py-2 font-semibold">
+            <li key={index} className="text-sm md:text-lg py-2 font-semibold">
               <NavLink to={link.url}>{link.text}</NavLink>
             </li>
           ))}
         </ul>
       </div>
 
-      <div className="text-white w-1/3">
-        <h2 className="text-lg font-semibold flex items-center">Contacts</h2>
+      <div className="text-white w-full md:w-1/3 flex flex-col justify-center items-center">
+        <h2 className="text-sm md:text-lg font-semibold mb-2">Contacts</h2>
         <div className="flex items-center gap-3 p-2 text-center">
           <FaMapMarkerAlt size={16} />
           <p>Delhi, India</p>
