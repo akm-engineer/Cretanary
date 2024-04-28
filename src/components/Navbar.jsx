@@ -1,106 +1,142 @@
 import React, { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 import {
-  FaSearch,
+  FaBars,
   FaCartPlus,
   FaInfoCircle,
   FaPhone,
-  FaUser,
+  FaTimes,
 } from "react-icons/fa";
-
-const GlassContainer = ({ children }) => (
-  <div className="bg-gray-300 mt-3  absolute bg-opacity-50 backdrop-blur-lg rounded-full flex items-center w-full justify-center z-999">
-    {children}
-  </div>
-);
-const link = [
-  {
-    id: 1,
-    logo: <FaCartPlus size={16} />,
-    item: "Cart",
-  },
-  {
-    id: 2,
-    logo: <FaInfoCircle size={16} />,
-    item: "About",
-  },
-  {
-    id: 3,
-    logo: <FaPhone size={16} />,
-    item: "Contact",
-  },
-  {
-    id: 4,
-    logo: <FaUser size={16} />,
-    item: "Login",
-  },
-];
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
     <>
-      <GlassContainer>
-        <div className=" w-full   flex justify-between md:justify-evenly items-center p-6 sm:flex-wrap">
-          <div className="flex gap-10 flex-col md:flex-row">
-            <h1 className="font-signature text-3xl ml-2 capitalize  font-bold cursor-pointer">
-              Cretanary
-            </h1>
-            <div className="flex items-center justify-center gap-2 ml-10 sm:ml-20 md:ml-0">
-              <FaSearch size={20} className="" />
+      <header className="w-full z-10 fixed justify-center mt-4 flex font-signature">
+        <nav className="w-3/4 h-[140px] lg:h-[90px] bg-slate-300 bg-opacity-25 backdrop-blur-md backdrop-filter rounded-3xl lg:rounded-full">
+          <div className="flex h-full lg:flex-row flex-col gap-4 lg:justify-between items-start lg:items-center max-sm:py-2 py-1.5 px-6 lg:px-8">
+            <div className="flex lg:items-center w-full justify-between lg:w-2/4 lg:justify-around">
+              <h3 className="text-2xl mt-3 lg:mt-0 flex justify-center items-center font-semibold font-signature">
+                <Link to="/">Createnary</Link>
+              </h3>
+              <div className="hidden lg:flex bg-white px-2 mx-2 rounded-3xl items-center justify-center">
+                <img
+                  alt="search"
+                  className="object-contain mx-2 bg-transparent size-10"
+                  src="/images/search.png"
+                />
+                <input
+                  type="text"
+                  placeholder="Search Creators"
+                  className="p-3.5 rounded-r-3xl w-48 outline-none"
+                />
+              </div>
+            </div>
+            <div className="flex lg:hidden w-full lg:w-auto bg-white px-2 rounded-3xl mt-4 justify-center items-center">
+              <img
+                alt="search"
+                className="object-contain  size-8"
+                src="/images/search.png"
+              />
               <input
-                placeholder="Search Creators "
-                className="rounded-2xl md:rounded-full p-2 w-40 sm:w-64 border-none focus:outline-none "
+                type="text"
+                placeholder="Search Creators"
+                className="p-3.5 rounded-r-3xl w-full lg:w-auto outline-none"
               />
             </div>
-          </div>
-
-          <ul className="hidden md:flex">
-            {link.map(({ id, item, logo }) => (
-              <li
-                key={id}
-                className=" flex items-center gap-2 text-xl justify-center font-medium "
-              >
-                <Link to={item} smooth duration={500} className=" px-4">
-                  <div className="flex items-center justify-center gap-2">
-                    {logo}
-                    {item}
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <div
-            onClick={() => setNav(!nav)}
-            className="cursor-pointer text-white md:hidden pr-4 pb-20 z-10"
-          >
-            {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
-          </div>
-          {nav && (
-            <ul className="flex flex-col justify-center items-center absolute top-0 left-0 bg-gray-300 w-full h-screen ">
-              {link.map(({ id, item, logo }) => (
-                <li
-                  key={id}
-                  className="text-3xl py-6 px-4 cursor-pointer  duration-200 capitalize "
-                >
-                  <Link
-                    onClick={() => setNav(false)}
-                    to={item}
-                    smooth
-                    duration={500}
-                  >
-                    <div className="flex items-center justify-center gap-2">
-                      {logo}
-                      {item}
-                    </div>
-                  </Link>
+            <div
+              onClick={() => setNav(!nav)}
+              className="cursor-pointer text-black absolute right-0 mr-6 z-10 lg:hidden "
+            >
+              <button className="border border-black flex items-center justify-center px-4 rounded-2xl py-3 z-10 ">
+                {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
+              </button>
+            </div>
+            {nav && (
+              <ul className="flex flex-col justify-center items-start font-semibold duration-300 absolute top-20 right-0 border border-black rounded-2xl p-4 gap-4 z-999 bg-slate-100 ">
+                <li className="flex gap-2 cursor-pointer hover:scale-95 duration-300 items-center ">
+                  <FaCartPlus className="size-4" />
+                  Cart
                 </li>
-              ))}
+                <li className="flex gap-2 cursor-pointer hover:scale-95 duration-300 items-center ">
+                  <FaInfoCircle className="size-4" />
+                  About
+                </li>
+                <li className="flex gap-2 cursor-pointer hover:scale-95 duration-300 items-center  ">
+                  <FaPhone className="size-4" />
+                  Contact
+                </li>
+                <li className=" cursor-pointer hover:scale-95 duration-300">
+                  Login
+                </li>
+                <li className=" cursor-pointer hover:scale-95 duration-300">
+                  Sign-up
+                </li>
+              </ul>
+            )}
+            <ul className="lg:flex items-center hidden lg:flex-row w-2/4 justify-evenly">
+              <li className="flex gap-2 cursor-pointer items-center">
+                <FaCartPlus className="size-4" />
+                Cart
+              </li>
+              <li className="flex gap-2 cursor-pointer items-center">
+                <FaInfoCircle className="size-4" />
+                About
+              </li>
+              <li className="flex gap-2 cursor-pointer items-center">
+                <FaPhone className="size-4" />
+                Contact
+              </li>
+              <div className="relative z-10">
+                <button
+                  id="login-dropdown-trigger"
+                  className={`group inline-flex h-12 w-max items-center justify-center rounded-2xl bg-none px-5 py-2 border border-black font-normal hover:bg-transparent focus:bg-transparent focus:text-black focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
+                    isDropdownOpen ? "bg-accent" : ""
+                  }`}
+                  onClick={toggleDropdown}
+                >
+                  Login
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={`lucide lucide-chevron-down relative top-[1px] ml-2 h-4 w-4 transition duration-200 ${
+                      isDropdownOpen ? "rotate-180" : ""
+                    }`}
+                    aria-hidden="true"
+                  >
+                    <path d="m6 9 6 6 6-6"></path>
+                  </svg>
+                </button>
+                {isDropdownOpen && (
+                  <div className="absolute top-14 w-28 left-0  bg-transparent  border border-black shadow-lg rounded-md ">
+                    <ul>
+                      <li className="px-4 py-2  hover:bg-[#6a71a2] cursor-pointer ">
+                        <Link to="/login">Login</Link>
+                      </li>
+                      <li className="px-4 py-2 cursor-pointer hover:bg-[#6a71a2]  ">
+                        <Link to="/signup">Signup</Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
             </ul>
-          )}
-        </div>
-      </GlassContainer>
+          </div>
+        </nav>
+      </header>
     </>
   );
 };

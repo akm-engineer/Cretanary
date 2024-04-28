@@ -56,9 +56,12 @@ const Calculate = () => {
                 onChange={handleFollowersChange}
                 className="w-full"
               />
-              <p className="pt-2 font-signature text-xl text-center">
-                Followers: {followers}
-              </p>
+              <div class="w-full flex justify-center items-center">
+                <span class="rounded-2xl mt-2.5 w-fit px-3 py-2 border-b-2 border-b-[#4A508E]">
+                  Followers: {followers}
+                </span>
+              </div>
+
               <p className="pt-6 font-signature text-xl pb-6">
                 How many products do you list monthly?
               </p>
@@ -70,9 +73,11 @@ const Calculate = () => {
                 onChange={handleProductsChange}
                 className="w-full"
               />
-              <p className="pt-2 font-signature text-xl text-center">
-                Products: {products}
-              </p>
+              <div class="w-full flex justify-center items-center">
+                <span class="rounded-2xl mt-2.5 w-fit px-3 py-2 border-b-2 border-b-[#4A508E]">
+                  Products: {products}
+                </span>
+              </div>
             </div>
             <div className="flex md:flex-col items-center gap-10 justify-between md:w-1/3 pt-2">
               <div className="flex items-center justify-center flex-col">
